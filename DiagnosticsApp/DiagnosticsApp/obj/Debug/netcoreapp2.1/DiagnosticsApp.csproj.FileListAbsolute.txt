@@ -12,3 +12,17 @@ F:\c#\Web\DiagnosticsApp\DiagnosticsApp\obj\Debug\netcoreapp2.1\DiagnosticsApp.R
 F:\c#\Web\DiagnosticsApp\DiagnosticsApp\obj\Debug\netcoreapp2.1\DiagnosticsApp.dll
 F:\c#\Web\DiagnosticsApp\DiagnosticsApp\obj\Debug\netcoreapp2.1\DiagnosticsApp.pdb
 F:\c#\Web\DiagnosticsApp\DiagnosticsApp\obj\Debug\netcoreapp2.1\DiagnosticsApp.csprojAssemblyReference.cache
+F:\c#\Web\NIRS\DiagnosticsApp\DiagnosticsApp\bin\Debug\netcoreapp2.1\DiagnosticsApp.deps.json
+F:\c#\Web\NIRS\DiagnosticsApp\DiagnosticsApp\bin\Debug\netcoreapp2.1\DiagnosticsApp.runtimeconfig.json
+F:\c#\Web\NIRS\DiagnosticsApp\DiagnosticsApp\bin\Debug\netcoreapp2.1\DiagnosticsApp.runtimeconfig.dev.json
+F:\c#\Web\NIRS\DiagnosticsApp\DiagnosticsApp\bin\Debug\netcoreapp2.1\DiagnosticsApp.dll
+F:\c#\Web\NIRS\DiagnosticsApp\DiagnosticsApp\bin\Debug\netcoreapp2.1\DiagnosticsApp.pdb
+F:\c#\Web\NIRS\DiagnosticsApp\DiagnosticsApp\obj\Debug\netcoreapp2.1\DiagnosticsApp.csprojAssemblyReference.cache
+F:\c#\Web\NIRS\DiagnosticsApp\DiagnosticsApp\obj\Debug\netcoreapp2.1\DiagnosticsApp.csproj.CoreCompileInputs.cache
+F:\c#\Web\NIRS\DiagnosticsApp\DiagnosticsApp\obj\Debug\netcoreapp2.1\DiagnosticsApp.RazorAssemblyInfo.cache
+F:\c#\Web\NIRS\DiagnosticsApp\DiagnosticsApp\obj\Debug\netcoreapp2.1\DiagnosticsApp.RazorAssemblyInfo.cs
+F:\c#\Web\NIRS\DiagnosticsApp\DiagnosticsApp\obj\Debug\netcoreapp2.1\DiagnosticsApp.AssemblyInfoInputs.cache
+F:\c#\Web\NIRS\DiagnosticsApp\DiagnosticsApp\obj\Debug\netcoreapp2.1\DiagnosticsApp.AssemblyInfo.cs
+F:\c#\Web\NIRS\DiagnosticsApp\DiagnosticsApp\obj\Debug\netcoreapp2.1\DiagnosticsApp.RazorTargetAssemblyInfo.cache
+F:\c#\Web\NIRS\DiagnosticsApp\DiagnosticsApp\obj\Debug\netcoreapp2.1\DiagnosticsApp.dll
+F:\c#\Web\NIRS\DiagnosticsApp\DiagnosticsApp\obj\Debug\netcoreapp2.1\DiagnosticsApp.pdb

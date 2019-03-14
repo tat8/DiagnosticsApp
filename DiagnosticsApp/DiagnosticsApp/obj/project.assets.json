@@ -12238,11 +12238,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\c#\\Web\\DiagnosticsApp\\DiagnosticsApp\\DiagnosticsApp.csproj",
+      "projectUniqueName": "F:\\c#\\Web\\NIRS\\DiagnosticsApp\\DiagnosticsApp\\DiagnosticsApp.csproj",
       "projectName": "DiagnosticsApp",
-      "projectPath": "F:\\c#\\Web\\DiagnosticsApp\\DiagnosticsApp\\DiagnosticsApp.csproj",
+      "projectPath": "F:\\c#\\Web\\NIRS\\DiagnosticsApp\\DiagnosticsApp\\DiagnosticsApp.csproj",
       "packagesPath": "C:\\Users\\Татьяна\\.nuget\\packages\\",
-      "outputPath": "F:\\c#\\Web\\DiagnosticsApp\\DiagnosticsApp\\obj\\",
+      "outputPath": "F:\\c#\\Web\\NIRS\\DiagnosticsApp\\DiagnosticsApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
