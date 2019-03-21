@@ -20,6 +20,5 @@ namespace DiagnosticsApp.Models
             k = 3,
             m = 10
         }
-
     }
 }

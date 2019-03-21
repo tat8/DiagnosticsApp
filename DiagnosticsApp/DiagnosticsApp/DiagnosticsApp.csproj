@@ -1,17 +1,59 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <None Remove="ClientApp\app\app.component.ts" />
+    <None Remove="ClientApp\app\app.module.ts" />
+    <None Remove="ClientApp\app\clients\client.component.ts" />
+    <None Remove="ClientApp\app\clients\client.service.ts" />
+    <None Remove="ClientApp\app\clients\client.ts" />
+    <None Remove="ClientApp\app\responseJson.ts" />
+    <None Remove="ClientApp\app\UserResponseJson.ts" />
+    <None Remove="ClientApp\app\users\responseJson.ts" />
+    <None Remove="ClientApp\app\users\user.component.ts" />
+    <None Remove="ClientApp\app\users\user.service.ts" />
+    <None Remove="ClientApp\app\users\user.ts" />
+    <None Remove="ClientApp\app\diagnostics\diagnostics.component.ts" />
+    <None Remove="ClientApp\app\diagnostics\diagnostics.service.ts" />
+    <None Remove="ClientApp\app\diagnostics\diagnostics.ts" />
+    <None Remove="ClientApp\main.ts" />
+    <None Remove="ClientApp\polyfills.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\origin\" />
+    <Folder Include="wwwroot\parsed\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
   </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\app.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\app.module.ts" />
+    <TypeScriptCompile Include="ClientApp\app\clients\client.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\clients\client.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\clients\client.ts" />
+    <TypeScriptCompile Include="ClientApp\app\responseJson.ts" />
+    <TypeScriptCompile Include="ClientApp\app\userResponseJson.ts" />
+    <TypeScriptCompile Include="ClientApp\app\users\user.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\users\user.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\users\user.ts" />
+    <TypeScriptCompile Include="ClientApp\app\diagnostics\diagnostics.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\diagnostics\diagnostics.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\diagnostics\diagnostics.ts" />
+    <TypeScriptCompile Include="ClientApp\main.ts" />
+    <TypeScriptCompile Include="ClientApp\polyfills.ts" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties tsconfig_1json__JSONSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

@@ -15,7 +15,7 @@ namespace DiagnosticsApp.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
+                .HasAnnotation("ProductVersion", "2.2.3-servicing-35854")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -46,10 +46,6 @@ namespace DiagnosticsApp.Migrations
 
                     b.HasKey("AppointmentId");
 
-                    b.HasIndex("ClientId");
-
-                    b.HasIndex("ExaminationId");
-
                     b.HasIndex("DoctorId", "StartTime")
                         .IsUnique()
                         .HasName("IX_Appointment");
@@ -66,8 +62,6 @@ namespace DiagnosticsApp.Migrations
                         .HasColumnName("diagnosisId");
 
                     b.HasKey("AppointmentId", "DiagnosisId");
-
-                    b.HasIndex("DiagnosisId");
 
                     b.HasIndex("AppointmentId", "DiagnosisId")
                         .IsUnique()
@@ -171,10 +165,6 @@ namespace DiagnosticsApp.Migrations
 
                     b.HasKey("DiagnosticsId");
 
-                    b.HasIndex("ClientId");
-
-                    b.HasIndex("ExaminationId");
-
                     b.HasIndex("DoctorId", "StartTime")
                         .IsUnique()
                         .HasName("IX_Diagnostics");
@@ -227,13 +217,13 @@ namespace DiagnosticsApp.Migrations
                         .HasColumnName("imageId")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("CalcinateBiggest")
+                    b.Property<double?>("CalcinateBiggest")
                         .HasColumnName("calcinateBiggest");
 
-                    b.Property<int>("CalcinatesCount")
+                    b.Property<int?>("CalcinatesCount")
                         .HasColumnName("calcinatesCount");
 
-                    b.Property<double>("CalcinatesPercent")
+                    b.Property<double?>("CalcinatesPercent")
                         .HasColumnName("calcinatesPercent");
 
                     b.Property<long>("DiagnosticsId")
@@ -249,8 +239,6 @@ namespace DiagnosticsApp.Migrations
                         .HasMaxLength(50);
 
                     b.HasKey("ImageId");
-
-                    b.HasIndex("DiagnosticsId");
 
                     b.ToTable("Image");
                 });
@@ -302,6 +290,11 @@ namespace DiagnosticsApp.Migrations
                         .HasColumnName("lastName")
                         .HasMaxLength(50);
 
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnName("phoneNumber")
+                        .HasMaxLength(50);
+
                     b.Property<long>("RoleId")
                         .HasColumnName("roleId");
 
@@ -311,7 +304,9 @@ namespace DiagnosticsApp.Migrations
                         .IsUnique()
                         .HasName("IX_User");
 
-                    b.HasIndex("RoleId");
+                    b.HasIndex("PhoneNumber")
+                        .IsUnique()
+                        .HasName("IX_UserPhoneNumber");
 
                     b.ToTable("User");
                 });
@@ -319,8 +314,9 @@ namespace DiagnosticsApp.Migrations
             modelBuilder.Entity("DiagnosticsApp.DatabaseModels.UserPassword", b =>
                 {
                     b.Property<long>("UserId")
-                        .IsRequired()
-                        .HasColumnName("userId");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("userId")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Password")
                         .IsRequired()
@@ -330,79 +326,6 @@ namespace DiagnosticsApp.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("UserPassword");
-                });
-
-            modelBuilder.Entity("DiagnosticsApp.DatabaseModels.Appointment", b =>
-                {
-                    b.HasOne("DiagnosticsApp.DatabaseModels.Client", "Client")
-                        .WithMany("Appointment")
-                        .HasForeignKey("ClientId")
-                        .HasConstraintName("FK_Appointment_Client");
-
-                    b.HasOne("DiagnosticsApp.DatabaseModels.User", "Doctor")
-                        .WithMany("Appointment")
-                        .HasForeignKey("DoctorId")
-                        .HasConstraintName("FK_Appointment_User");
-
-                    b.HasOne("DiagnosticsApp.DatabaseModels.Examination", "Examination")
-                        .WithMany("Appointment")
-                        .HasForeignKey("ExaminationId")
-                        .HasConstraintName("FK_Appointment_Examination");
-                });
-
-            modelBuilder.Entity("DiagnosticsApp.DatabaseModels.AppointmentDiagnosis", b =>
-                {
-                    b.HasOne("DiagnosticsApp.DatabaseModels.Appointment", "Appointment")
-                        .WithMany("AppointmentDiagnosis")
-                        .HasForeignKey("AppointmentId")
-                        .HasConstraintName("FK_AppointmentDiagnosis_Appointment");
-
-                    b.HasOne("DiagnosticsApp.DatabaseModels.Diagnosis", "Diagnosis")
-                        .WithMany("AppointmentDiagnosis")
-                        .HasForeignKey("DiagnosisId")
-                        .HasConstraintName("FK_AppointmentDiagnosis_Diagnosis");
-                });
-
-            modelBuilder.Entity("DiagnosticsApp.DatabaseModels.Diagnostics", b =>
-                {
-                    b.HasOne("DiagnosticsApp.DatabaseModels.Client", "Client")
-                        .WithMany("Diagnostics")
-                        .HasForeignKey("ClientId")
-                        .HasConstraintName("FK_Diagnostics_Client");
-
-                    b.HasOne("DiagnosticsApp.DatabaseModels.User", "Doctor")
-                        .WithMany("Diagnostics")
-                        .HasForeignKey("DoctorId")
-                        .HasConstraintName("FK_Diagnostics_User");
-
-                    b.HasOne("DiagnosticsApp.DatabaseModels.Examination", "Examination")
-                        .WithMany("Diagnostics")
-                        .HasForeignKey("ExaminationId")
-                        .HasConstraintName("FK_Diagnostics_Examination");
-                });
-
-            modelBuilder.Entity("DiagnosticsApp.DatabaseModels.Image", b =>
-                {
-                    b.HasOne("DiagnosticsApp.DatabaseModels.Diagnostics", "Diagnostics")
-                        .WithMany("Image")
-                        .HasForeignKey("DiagnosticsId")
-                        .HasConstraintName("FK_Image_Diagnostics");
-                });
-
-            modelBuilder.Entity("DiagnosticsApp.DatabaseModels.User", b =>
-                {
-                    b.HasOne("DiagnosticsApp.DatabaseModels.Role", "Role")
-                        .WithMany("User")
-                        .HasForeignKey("RoleId")
-                        .HasConstraintName("FK_User_Role");
-                });
-
-            modelBuilder.Entity("DiagnosticsApp.DatabaseModels.UserPassword", b =>
-                {
-                    b.HasOne("DiagnosticsApp.DatabaseModels.User", "User")
-                        .WithOne("UserPassword")
-                        .HasForeignKey("DiagnosticsApp.DatabaseModels.UserPassword", "UserId")
-                        .HasConstraintName("FK_UserPassword_User");
                 });
 #pragma warning restore 612, 618
         }

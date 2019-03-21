@@ -1,0 +1,29 @@
+﻿<h2>Диагностика</h2>
+<h3>Информация о пациенте</h3>
+<div>
+    <div>
+        <p>Фамилия</p>
+        <input type="text" disabled="disabled" [value]="client.lastName" />
+    </div>
+    <div>
+        <p>Имя</p>
+        <input type="text" disabled="disabled" [value]="client.firstName" />
+    </div>
+    <div>
+        <p>Отчество</p>
+        <input type="text" disabled="disabled" [value]="client.fatherName" />
+    </div>
+    <div>
+        <p>СНИЛС</p>
+        <input type="text" disabled="disabled" [value]="client.snils" />
+    </div>
+</div>
+<h3>Осмотр</h3>
+<h3>Загрузить снимки</h3>
+<div>
+    <input type="file" multiple="multiple" accept=".dcm" (change)="fileChange($event)"/>
+</div>
+<div>
+    <button class="btn btn-sm btn-primary">Отмена</button>
+    <button class="btn btn-sm btn-primary" (click)="add()">Сохранить</button>
+</div>

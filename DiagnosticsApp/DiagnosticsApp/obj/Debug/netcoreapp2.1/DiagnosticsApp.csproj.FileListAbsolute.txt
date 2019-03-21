@@ -25,3 +25,4 @@ F:\c#\Web\NIRS\DiagnosticsApp\DiagnosticsApp\obj\Debug\netcoreapp2.1\Diagnostics
 F:\c#\Web\NIRS\DiagnosticsApp\DiagnosticsApp\obj\Debug\netcoreapp2.1\DiagnosticsApp.RazorTargetAssemblyInfo.cache
 F:\c#\Web\NIRS\DiagnosticsApp\DiagnosticsApp\obj\Debug\netcoreapp2.1\DiagnosticsApp.dll
 F:\c#\Web\NIRS\DiagnosticsApp\DiagnosticsApp\obj\Debug\netcoreapp2.1\DiagnosticsApp.pdb
+F:\c#\Web\NIRS\DiagnosticsApp\DiagnosticsApp\obj\Debug\netcoreapp2.1\DiagnosticsApp.csprojAssemblyReference.cache

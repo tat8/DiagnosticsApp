@@ -6,6 +6,7 @@ namespace DiagnosticsApp.DatabaseModels
     public partial class User
     {
         public long UserId { get; set; }
+        public string PhoneNumber { get; set; }
         public string FirstName { get; set; }
         public string FatherName { get; set; }
         public string LastName { get; set; }

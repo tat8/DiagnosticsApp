@@ -1,0 +1,10 @@
+﻿<div *ngIf="!authorized">
+    <div>
+        <p>Номер телефона</p>
+        <input type="text" [(ngModel)]="userLogin.phoneNumber" />
+    </div>
+    <div>
+        <p>Пароль</p>
+        <input type="text" [(ngModel)]="userLogin.password" />
+    </div>
+</div>

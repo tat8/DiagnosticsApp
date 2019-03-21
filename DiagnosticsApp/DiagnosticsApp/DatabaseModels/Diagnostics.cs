@@ -11,7 +11,5 @@ namespace DiagnosticsApp.DatabaseModels
         public long ClientId { get; set; }
         public long? ExaminationId { get; set; }
 
-        public Client Client { get; set; }
-        public User Doctor { get; set; }
     }
 }

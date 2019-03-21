@@ -1,0 +1,55 @@
+﻿<h2>Список пользователей</h2>
+<input type="button" value="Добавить" class="btn btn-default" (click)="add()" />
+<table *ngIf="tableMode; else create" class="table table-striped">
+    <thead>
+        <tr>
+            <td>Фамилия</td>
+            <td>Имя</td>
+            <td>Отчество</td>
+            <td>ИНН</td>
+            <td>Роль</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+                <td>{{user.lastName}}</td>
+                <td>{{user.firstName}}</td>
+                <td>{{user.fatherName}}</td>
+                <td>{{user.inn}}</td>
+                <td>{{user.roleName}}</td>
+                <td>
+                    <button class="btn btn-sm btn-primary" (click)="editUser(p)">Изменить</button>
+                </td>
+        </tr>
+    </tbody>
+</table>
+ 
+
+<!--шаблон для добавления-->
+<ng-template #create>
+    <div class="form-group">
+        <label>Фамилия</label>
+        <input type="text" [(ngModel)]="user.lastName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Имя</label>
+        <input type="text" [(ngModel)]="user.firstName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Отчество</label>
+        <input type="text" [(ngModel)]="user.fatherName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>ИНН</label>
+        <input type="text" [(ngModel)]="user.inn" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Роль</label>
+        <input type="text" [(ngModel)]="user.roleName" class="form-control" />
+    </div>
+    <div>
+        <input type="button" value="Сохранить" (click)="save()" class="btn btn-success" />
+        <input type="button" value="Отмена" (click)="cancel()" class="btn btn-warning" />
+    </div>
+</ng-template>

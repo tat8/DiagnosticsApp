@@ -229,6 +229,10 @@ namespace DiagnosticsApp.DatabaseModels
                     .HasName("IX_User")
                     .IsUnique();
 
+                entity.HasIndex(e => e.PhoneNumber)
+                    .HasName("IX_UserPhoneNumber")
+                    .IsUnique();
+
                 entity.Property(e => e.UserId).HasColumnName("userId");
 
                 entity.Property(e => e.FatherName)
@@ -244,6 +248,11 @@ namespace DiagnosticsApp.DatabaseModels
                     .IsRequired()
                     .HasColumnName("INN")
                     .HasMaxLength(12);
+
+                entity.Property(e => e.PhoneNumber)
+                   .IsRequired()
+                   .HasColumnName("phoneNumber")
+                   .HasMaxLength(50);
 
                 entity.Property(e => e.LastName)
                     .IsRequired()

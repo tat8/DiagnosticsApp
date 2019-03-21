@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DiagnosticsApp.Models;
-using DiagnosticsApp.Services;
+using DiagnosticsApp.Services.Errors;
+using DiagnosticsApp.Services.Users;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,12 +15,14 @@ namespace DiagnosticsApp.Controllers
     public class UsersController : Controller
     {
         private IUserService userService;
-        public UsersController(IUserService userService)
+        private IErrorService errorService;
+
+        public UsersController(IUserService userService, IErrorService errorService)
         {
             this.userService = userService;
+            this.errorService = errorService;
         }
-
-
+        
         // GET api/users
         [HttpGet]
         public IActionResult Get()
@@ -32,14 +35,14 @@ namespace DiagnosticsApp.Controllers
             }
             catch (Exception ex)
             {
-                var errorModel = BuildError(ex);
+                var errorModel = errorService.BuildError(ex);
                 result = Json(BadRequest(errorModel));
             }
             return result;
         }
 
-        // GET api/users
-        [HttpGet("filters")]
+        // GET api/users/filters
+        [HttpPost("filters")]
         public IActionResult Get(UserModel userModel)
         {
             JsonResult result;
@@ -63,7 +66,7 @@ namespace DiagnosticsApp.Controllers
             }
             catch (Exception ex)
             {
-                var errorModel = BuildError(ex);
+                var errorModel = errorService.BuildError(ex);
                 result = Json(BadRequest(errorModel));
             }
             return result;
@@ -76,12 +79,15 @@ namespace DiagnosticsApp.Controllers
             JsonResult result;
             try
             {
-                userModel = userService.AddUser(userModel);
+                if(ModelState.IsValid)
+                {
+                    userModel = userService.AddUser(userModel);
+                }
                 result = Json(Ok(userModel));
             }
             catch (Exception ex)
             {
-                var errorModel = BuildError(ex);
+                var errorModel = errorService.BuildError(ex);
                 result = Json(BadRequest(errorModel));
             }
             return result;
@@ -95,28 +101,19 @@ namespace DiagnosticsApp.Controllers
             JsonResult result;
             try
             {
-                userService.EditUser(userModel);
+                if(ModelState.IsValid)
+                {
+                    userService.EditUser(userModel);
+                }
                 result = Json(Ok());
             }
             catch (Exception ex)
             {
-                var errorModel = BuildError(ex);
+                var errorModel = errorService.BuildError(ex);
                 result = Json(BadRequest(errorModel));
             }
             return result;
         }
 
-        private ErrorModel BuildError(Exception ex)
-        {
-            var errorModel = new ErrorModel()
-            {
-                CustomMessage = "Некорректный запрос",
-                Message = ex.Message,
-                InnerException = ex.InnerException,
-                Source = ex.Source
-            };
-
-            return errorModel;
-        }
     }
 }
